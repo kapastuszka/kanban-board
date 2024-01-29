@@ -1,0 +1,18 @@
+.app {
+  background: var(--color-gray);
+  min-height: 100vh;
+  min-width: 100vw;
+  section {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    margin: auto;
+    width: fit-content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

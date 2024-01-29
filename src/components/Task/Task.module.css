@@ -1,0 +1,40 @@
+.task {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 0.5rem;
+    min-height: 3rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h3 {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    p {
+        color: var(--color-gray);
+        font-size: 0.875rem;
+
+    }
+
+    small {
+        --bg-color:  var(--color-gray-light);
+        border-radius: 0.25em;
+        background-color: var(--bg-color);
+        padding: 0 0.25rem;
+        align-self: flex-end;
+    }
+
+    .planned {
+        --bg-color: var(--color-gray-light)
+    }
+    .done {
+        --bg-color: var(--color-done)
+    }
+    .ongoing {
+        --bg-color: var(--color-ongoing)
+    }
+}
