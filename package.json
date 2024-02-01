@@ -13,7 +13,9 @@
     "@types/css-modules": "^1.0.5",
     "classnames": "^2.5.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
