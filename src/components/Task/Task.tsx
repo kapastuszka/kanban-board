@@ -1,14 +1,21 @@
 import cn from "classnames";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { Task as TaskType } from "../../types/global";
 import css from "./Task.module.css";
-type Status = "PLANNED" | "DONE" | "ONGOING";
-function Task({
-	title,
-	description,
-	status,
-}: { title: string; description: string; status: Status }) {
+function Task({ title, description, status }: TaskType) {
 	return (
 		<div className={css.task}>
-			<h3>{title}</h3>
+			<div className={css.header}>
+				<h3>{title}</h3>
+				<div className={css.actions}>
+					<button type="button">
+						<FiEdit />
+					</button>
+					<button type="button">
+						<FiTrash2 />
+					</button>
+				</div>
+			</div>
 			<p>{description}</p>
 			<small
 				className={cn(css.status, {

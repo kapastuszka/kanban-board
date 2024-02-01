@@ -1,37 +1,109 @@
 :root {
-    --color-gray: #333333;
-    --color-gray-dark: #222222;
-    --color-gray-light: #cccccc;
-    --color-ongoing: #98c1d9;
-    --color-done: #ee6c4d;
-    --color-white: #f1f1f1;
-    --color-black: #1d1d1d;
-  
+  --color-gray: #333333;
+  --color-gray-dark: #222222;
+  --color-gray-light: #cccccc;
+  --color-white: #f1f1f1;
+  --color-black: #1d1d1d;
+  --color-tangelo: #fb5012ff;
+  --color-cyan: #01fdf6ff;
+  --color-periwinkle: #cbbaedff;
+  --color-aureolin: #e9df00ff;
+  --color-aquamarine: #03fcbaff;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-ongoing: var(--color-aureolin);
+  --color-planned: var(--color-periwinkle);
+  --color-done: var(--color-aquamarine);
+
+  --border-radius-m: 0.25rem;
+  --border-radius-lg: 0.5rem;
+
+  --modal-backdrop: rgba(0, 0, 0, 0.55);
+
+  --spacer-1: 4px;
+  --spacer-2: 8px;
+  --spacer-3: 12px;
+  --spacer-4: 16px;
+  --spacer-5: 24px;
+  --spacer-6: 32px;
+  --spacer-7: 40px;
+
+  /* Fluid font size variables, for browsers that support clamp */
+  @supports (font-size: clamp(1rem, 1vw, 1rem)) {
+    --font-size-sm: clamp(0.875rem, 0.17vw + 0.76rem, 0.89rem);
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+    --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+  }
+
+  /* Fallback variables for browsers that don't support clamp */
+  @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 1.56rem;
+    --font-size-xl: 1.95rem;
+    --font-size-xxl: 2.44rem;
+    --font-size-xxxl: 3.05rem;
+
+    @media screen and (min-width: 1280px) {
+      --font-size-sm: 0.95rem;
+      --font-size-base: 1.19rem;
+      --font-size-md: 1.58rem;
+      --font-size-lg: 2.11rem;
+      --font-size-xl: 2.81rem;
+      --font-size-xxl: 3.75rem;
+      --font-size-xxxl: 5rem;
+    }
+  }
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
+}
+
+
+html {
+  line-height: 1.5;
   text-rendering: optimizeLegibility;
+  font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  color: rgba(255, 255, 255, 0.87);
+  box-sizing: border-box;
+  font-family: 'Open Sans';
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    margin: 0.25em 0;
+  }
+
+  small {
+    font-size: var(--font-size-sm);
+  }
+
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+  }
+
 }
 
 body {
+  background: var(--color-gray);
   margin: 0;
   display: flex;
   place-items: center;
@@ -39,39 +111,68 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: 1px solid var(--color-black);
+  padding: 0.5em 0.75em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-white);
+
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-aureolin);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+select,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  min-height: 2rem;
+  border: 1px solid var(--color-gray-light);
+  background-color: var(--color-white);
+  padding: var(--spacer-2);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+  margin-right: 2rem;
+  padding-right: 2rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-top: var(--spacer-3);
+  margin-bottom: var(--spacer-1);
+  font-weight: bold;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--color-black);
+    background-color: var(--color-white);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
 }

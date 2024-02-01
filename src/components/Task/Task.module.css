@@ -9,19 +9,39 @@
     justify-content: space-between;
     align-items: flex-start;
 
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     h3 {
         margin: 0;
         font-size: 1rem;
     }
 
+    .actions {
+        display: flex;
+        align-self: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
     p {
+        line-height: 1.25;
         color: var(--color-gray);
         font-size: 0.875rem;
-
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-width: 30em;
     }
 
     small {
-        --bg-color:  var(--color-gray-light);
+        --bg-color: var(--color-gray-light);
         border-radius: 0.25em;
         background-color: var(--bg-color);
         padding: 0 0.25rem;
@@ -29,11 +49,13 @@
     }
 
     .planned {
-        --bg-color: var(--color-gray-light)
+        --bg-color: var(--color-planned)
     }
+
     .done {
         --bg-color: var(--color-done)
     }
+
     .ongoing {
         --bg-color: var(--color-ongoing)
     }
