@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import css from "./App.module.css";
 import { Button, Column, Modal } from "./components";
+import { columns } from "./const";
 import { useStore } from "./store";
 import { TaskStatus } from "./types/global";
 
@@ -32,9 +33,9 @@ function App() {
 					<h1>My project</h1>
 					<Button text="Add task" onClick={() => setShowModal(true)} />
 				</header>
-				<Column title="To do" status="PLANNED" />
-				<Column title="In progress" status="ONGOING" />
-				<Column title="Done" status="DONE" />
+				{columns.map(({ title, status }) => (
+					<Column key={status} title={title} status={status} />
+				))}
 			</section>
 			{showModal ? (
 				<Modal>
@@ -46,9 +47,11 @@ function App() {
 							<textarea id="description" name="description" />
 							<label htmlFor="status">Status</label>
 							<select id="status" name="status">
-								<option value="PLANNED">Planned</option>
-								<option value="ONGOING">Ongoing</option>
-								<option value="DONE">Done</option>
+								{columns.map(({ title, status }) => (
+									<option key={status} value={status}>
+										{title}
+									</option>
+								))}
 							</select>
 						</form>
 						<Modal.Footer>
